@@ -10,7 +10,23 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Food {
-  id   Int    @id @default(autoincrement())
-  name String
+model User {
+  id        String   @id @default(uuid()) @db.Uuid
+  email     String   @unique
+  name      String?
+
+  learningSessions  LearningSession[]   // one user has many learning sessions
+}
+
+model LearningSession {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  topic     String
+  duration  Int
+  date      DateTime
+  notes     String?
+
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@index([userId]) // optional, makes queries faster
 }

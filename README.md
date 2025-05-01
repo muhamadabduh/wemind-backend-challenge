@@ -1,9 +1,8 @@
-# NestJS Prisma Docker
+# Wemind Backend Challenge
+Boilerplate from [nest-js-prisma-docker ](https://github.com/notiz-dev/nestjs-prisma-docker)
 
-> DON'T commit .env files into version control, add `.env` to `.gitignore`. `.env` files are added here as an example.
 
-Develop the Nest application
-
+### How to start development server
 ```bash
 npm install
 
@@ -31,3 +30,15 @@ docker-compose up
 # or detached
 docker-compose up -d
 ```
+
+## Test
+### unit test
+```bash
+npm run test:cov
+```
+### e2e test
+```bash
+npm run test:e2e
+```
+
+

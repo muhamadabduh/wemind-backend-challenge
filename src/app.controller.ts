@@ -1,7 +1,7 @@
 import { PrismaService } from './prisma/prisma.service';
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
-import { Food } from '@prisma/client';
+
 
 @Controller()
 export class AppController {
@@ -15,8 +15,4 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get('foods')
-  getFoods(): Promise<Food[]> {
-    return this.prismaService.food.findMany();
-  }
 }
